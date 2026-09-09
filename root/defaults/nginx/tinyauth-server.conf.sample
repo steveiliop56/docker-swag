@@ -16,9 +16,6 @@ location /tinyauth {
 
     # Headers needed for authentication
     proxy_set_header X-Original-URL $scheme://$http_host$request_uri;
-    proxy_set_header X-Real-IP $remote_addr;
-
-    # Not needed by Tinyauth right now but may be needed in the future
-    proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header X-Original-Method $request_method;
+    proxy_set_header X-Real-IP $remote_addr;
 }

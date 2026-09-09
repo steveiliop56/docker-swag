@@ -6,9 +6,6 @@
 auth_request /tinyauth;
 auth_request_set $redirection_url $upstream_http_x_tinyauth_location;
 error_page 401 403 =302 $redirection_url;
-  
-## If the subreqest returns 200 pass to the backend, if the subrequest returns 401 redirect to the URL tinyauth returns in the X-Tinyauth-Location header
-error_page 401 = @tinyauth_login;
 
 ## Translate the user information response headers from the auth subrequest into variables
 auth_request_set $email $upstream_http_remote_email;
